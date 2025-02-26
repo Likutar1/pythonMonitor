@@ -2,10 +2,10 @@
 
 name: Test and Deploy Python Script
 
-# on:  # When this happens, run this workflow.
-#  push: # Which workflow should be triggered when code is pushed to the repository.
-#    branches: # Which branches should trigger the workflow.
-#      - main
+on: # When this happens, run this workflow.
+  push: # Which workflow should be triggered when code is pushed to the repository.
+    branches: # Which branches should trigger the workflow.
+      - main
 
 jobs:
   deploy:  # Could be "test" as well.
