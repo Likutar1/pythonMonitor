@@ -1,0 +1,28 @@
+name: Test and Deploy Python Script
+
+# on:  # When this happens, run this workflow.
+#  push: # Which workflow should be triggered when code is pushed to the repository.
+#    branches: # Which branches should trigger the workflow.
+#      - main
+
+jobs:
+  deploy:  # Could be "test" as well.
+    runs-on: ubuntu-latest # Type of runner
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4  # Name of action, version is @v4.
+
+    - name: Debug SSH connection
+      run: |
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key
+        chmod 600 private_key
+        ssh -i private_key -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.FRONTEND_IP }} "echo 'SSH Connection Successful'"
+
+    - name: Copy files to VM
+      run: |
+        scp -r -i private_key -o StrictHostKeyChecking=no -P ${{ secrets.SSH_PORT }} "${PWD}" ${{ secrets.SSH_USER }}@${{ secrets.FRONTEND_IP }}:~
+
+    - name: Run setup script
+      run: |
+        ssh -i private_key -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.FRONTEND_IP }} 'sudo sh /my_python_file.py > output.txt'
