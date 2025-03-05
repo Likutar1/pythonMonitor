@@ -18,7 +18,7 @@ jobs:
 
     - name: Run Bash script tests
       run: |
-        chmod +x ./my_python_file.py &&  ./my_python_file.py
+        chmod +x ./testScript.sh &&  ./testScript.sh
 
 
 
@@ -42,4 +42,4 @@ jobs:
 
     - name: Run setup script
       run: |
-        ssh -i private_key -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.FRONTEND_IP }} 'sudo sh /my_python_file.py > output.txt'
+        ssh -i private_key -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.FRONTEND_IP }} 'sudo sh /testScript.sh > output.txt'
