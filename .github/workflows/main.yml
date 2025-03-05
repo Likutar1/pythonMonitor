@@ -41,4 +41,4 @@ jobs:
 
     - name: Run setup script
       run: |
-        ssh -i private_key -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.FRONTEND_IP }} 'sudo sh /root/projects/githubWorkflow/testScript.sh > output.txt'
+        ssh -i private_key -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.FRONTEND_IP }} 'sudo sh /root/projects/githubWorkflow/testScript.sh > /root/projects/githubWorkflow/output.txt'
