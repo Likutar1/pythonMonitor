@@ -8,8 +8,22 @@ on: # When this happens, run this workflow.
       - main
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Run Bash script tests
+      run: |
+        chmod +x ./my_python_file.py &&  ./my_python_file.py
+
+
+
   deploy:  # Could be "test" as well.
     runs-on: ubuntu-latest # Type of runner
+    needs: test
 
     steps:
     - name: Checkout code
