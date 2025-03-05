@@ -1,7 +1,7 @@
 import requests
 import datetime
 
-print("--------------------------")
+print("________________")
 print("Started script main.py")
 
 """
