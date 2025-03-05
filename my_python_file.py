@@ -4,11 +4,6 @@ import datetime
 # print("________________")
 print("Started script main.py")
 
-"""
-web1="https://www.salford.gov.uk"
-web2="http://www.google.com"
-string1="Lucky"
-"""
 
 websites=[
     {"url":"https://www.salford.gov.uk","keyword":"abc"},
@@ -37,30 +32,3 @@ for web in websites:
 
 
 
-
-"""
-print("web1:",response.status_code)
-if response.status_code == 200:
-    print("The site is up.")
-    if string1 in response.text:
-        print("The string",string1,"is found.")
-    else:
-        print("The string",string1,"was not found.")
-elif response.status_code == 403:
-    print("Access refusal.")
-else:
-    print("Unsure, please check.")
-
-response=requests.get(web2)
-print("web2:",response.status_code)
-if response.status_code == 200:
-    print("The site is up.")
-    if string1 in response.text:
-        print("The string",string1,"is found.")
-    else:
-        print("The string",string1,"was not found.")
-elif response.status_code == 403:
-    print("Access refusal.")
-else:
-    print("Unsure, please check.")
-"""
