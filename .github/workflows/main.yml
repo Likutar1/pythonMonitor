@@ -37,8 +37,8 @@ jobs:
 
     - name: Copy files to VM
       run: |
-        scp -r -i private_key -o StrictHostKeyChecking=no -P ${{ secrets.SSH_PORT }} "${PWD}" ${{ secrets.SSH_USER }}@${{ secrets.FRONTEND_IP }}:~
+        scp -r -i private_key -o StrictHostKeyChecking=no -P ${{ secrets.SSH_PORT }} testScript.sh ${{ secrets.SSH_USER }}@${{ secrets.FRONTEND_IP }}:/root/projects/githubWorkflow
 
     - name: Run setup script
       run: |
-        ssh -i private_key -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.FRONTEND_IP }} 'sudo sh /testScript.sh > output.txt'
+        ssh -i private_key -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.FRONTEND_IP }} 'sudo sh /root/projects/githubWorkflow/testScript.sh > output.txt'
