@@ -17,7 +17,7 @@ jobs:
 
     - name: Run Bash script tests
       run: |
-        chmod +x ./testScript.sh &&  ./testScript.sh
+        chmod +x ./webMonitor.sh &&  ./webMonitor.sh
 
 
 
@@ -37,8 +37,8 @@ jobs:
 
     - name: Copy files to VM
       run: |
-        scp -r -i private_key -o StrictHostKeyChecking=no -P ${{ secrets.SSH_PORT }} testScript.sh ${{ secrets.SSH_USER }}@${{ secrets.FRONTEND_IP }}:${{ secrets.pwd }}
+        scp -r -i private_key -o StrictHostKeyChecking=no -P ${{ secrets.SSH_PORT }} webMonitor.sh ${{ secrets.SSH_USER }}@${{ secrets.FRONTEND_IP }}:${{ secrets.pwd }}
 
     - name: Run setup script
       run: |
-        ssh -i private_key -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.FRONTEND_IP }} 'sudo bash ${{ secrets.pwd }}testScript.sh > ${{ secrets.pwd }}output_$(date +%Y%m%d-%H%M-%S).txt'
+        ssh -i private_key -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.FRONTEND_IP }} 'sudo bash ${{ secrets.pwd }}webMonitor.sh > ${{ secrets.pwd }}output_$(date +%Y%m%d-%H%M-%S).txt'
