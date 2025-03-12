@@ -7,6 +7,7 @@ websites=(
   "https://www.salford.gov.uk abc"
   "https://www.google.com Lucky"
   "https://www.facebook.com Facebook"
+  "https://www.fakewebsite_asdlkfjvioervklasddf.com Rubbish"
 )
 
 for web in "${websites[@]}"; do
