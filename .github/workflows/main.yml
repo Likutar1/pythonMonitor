@@ -9,11 +9,11 @@ on: # When this happens, run this workflow.
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # GitHub-hosted runner.
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+    - name: Checkout code  # Appears in workflow logs.
+      uses: actions/checkout@v3  # A pre-built action that simplifies the process of making your repository's code available to your GitHub Actions workflows.
 
     - name: Run Bash script tests
       run: |
@@ -21,7 +21,7 @@ jobs:
 
 
 
-  deploy:  # Could be "test" as well.
+  deploy:
     runs-on: ubuntu-latest # Type of runner
     needs: test
 
