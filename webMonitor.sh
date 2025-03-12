@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "--------------------------"
-echo "Started script main.sh"
+echo "Started script webMonitor.sh"
 
 websites=(
   "https://www.salford.gov.uk abc"
