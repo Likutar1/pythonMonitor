@@ -32,6 +32,6 @@ for web in "${websites[@]}"; do
   elif [[ "$response" -eq 403 ]]; then
     echo "Access refusal."
   else
-    echo "Unsure, please check."
+    echo "Unusual response, please check."
   fi
 done
